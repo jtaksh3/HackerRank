@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int t = scan.nextInt();
+        while(t-- > 0) {
+            int cmpr = 0;
+            outer: {
+            int n = scan.nextInt();
+            if (n <= 1) {
+                cmpr++;
+                break outer;
+            }
+            else if (n <= 3) {
+                break outer;
+            }
+            else if (n%2 == 0 || n%3 == 0) {
+                cmpr++;
+                break outer;
+            }
+            for (int i=5; i*i<=n; i=i+6) {
+               if (n%i == 0 || n%(i+2) == 0) {
+                 cmpr++;
+                 break outer;
+               }
+            }
+            }
+            if(cmpr == 0)
+              System.out.println("Prime");
+            else
+                System.out.println("Not prime");
+        }
+    }
+}
+
+
+
