@@ -1,0 +1,50 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        int a;
+        for(a = 1; a < n; a++) {
+            if((Math.pow(2,a)) >= n)
+                break;
+        }
+        int[] arr = new int[a];
+            for (int i = 0; i < a; i++) {
+                if (n == 1) {
+                    arr[i] = 1;
+                    break;
+                }
+                arr[i] = n % 2;
+                n = n / 2;
+            }
+        int count = 0;
+        int ans = 0, cmpr = 0;
+        for(int i = 0; i < a; i++) {
+            if(arr[i] == 1) {
+                cmpr = ++count;
+            }
+            else {
+                if(cmpr > ans)
+                    ans = cmpr;
+                count = 0;
+            }
+        }
+        if(cmpr > ans)
+            System.out.println(cmpr);
+        else
+            System.out.println(ans);
+        scanner.close();
+    }
+}
