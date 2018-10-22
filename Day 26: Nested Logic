@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int Da = scan.nextInt();
+        int Ma = scan.nextInt();
+        int Ya = scan.nextInt();
+        int De = scan.nextInt();
+        int Me = scan.nextInt();
+        int Ye = scan.nextInt();
+        if(Ye == Ya) {
+            if(Me == Ma) {
+                if(Da <= De) {
+                    System.out.println("0");
+                }
+                else {
+                    int ans = 15 * (Da - De);
+                    System.out.println(ans);
+                }
+            }
+            else if(Ma < Me) {
+                System.out.println("0");
+            }
+            else {
+                int ans = 500 * (Ma - Me);
+                System.out.println(ans);
+            }
+        }
+        else if(Ya < Ye) {
+            System.out.println("0");
+        }
+        else {
+            System.out.println("10000");
+        }
+    }
+}
+
