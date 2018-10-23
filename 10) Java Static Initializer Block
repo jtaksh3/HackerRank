@@ -15,7 +15,7 @@ public class Solution {
         scan.nextLine();
         H = scan.nextInt();
         scan.close();
-        if (B >= 0 && H >= 0) {
+        if (B > 0 && H > 0) {
             flag = true;
 
         } else {
